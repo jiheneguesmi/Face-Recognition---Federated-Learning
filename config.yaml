@@ -1,0 +1,61 @@
+# Federated Learning Configuration
+
+# Training Parameters
+training:
+  num_rounds: 20                    # Number of federated learning rounds
+  epochs_per_client: 5              # Number of epochs each client trains per round
+  batch_size: 16                    # Batch size for training
+  learning_rate: 0.001              # Learning rate
+  momentum: 0.9                     # SGD momentum
+  weight_decay: 0.0001              # L2 regularization
+
+# Model Parameters
+model:
+  embedding_size: 512               # Face embedding dimension
+  num_classes: 4                    # Number of team members
+  pretrained: true                  # Use pretrained FaceNet model
+  image_size: 160                   # Input image size (160x160 for FaceNet)
+
+# Data Parameters
+data:
+  raw_data_path: "data/raw"         # Path to raw images
+  processed_data_path: "data/processed"  # Path to processed images
+  train_split: 0.8                  # Train/validation split ratio
+  min_images_per_class: 10          # Minimum images required per member
+
+# Server Parameters
+server:
+  host: "localhost"                 # Server host address
+  port: 5000                        # Server port
+  aggregation_method: "fedavg"      # Aggregation method (fedavg, fedprox, etc.)
+
+# Client Parameters
+client:
+  member_names:                     # List of team members
+    - "omarmej"    # PM
+    - "abir"
+    - "omarbr"
+    - "jihene"
+
+# Paths
+paths:
+  models_dir: "models"
+  checkpoints_dir: "models/checkpoints"
+  saved_models_dir: "models/saved"
+  pretrained_dir: "models/pretrained"
+  logs_dir: "logs"
+  tensorboard_dir: "logs/tensorboard"
+
+# Logging
+logging:
+  log_level: "INFO"                 # Logging level (DEBUG, INFO, WARNING, ERROR)
+  save_checkpoints: true            # Save model checkpoints
+  checkpoint_frequency: 5           # Save checkpoint every N rounds
+  use_tensorboard: true             # Use TensorBoard for logging
+
+# Evaluation
+evaluation:
+  evaluate_after_rounds: 5          # Evaluate model every N rounds
+  save_predictions: true            # Save prediction results
+  generate_confusion_matrix: true   # Generate confusion matrix
+

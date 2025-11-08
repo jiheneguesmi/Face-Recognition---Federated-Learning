@@ -1,0 +1,15 @@
+torch>=2.0.0
+torchvision>=0.15.0
+facenet-pytorch>=2.5.3
+# Note: Pillow 11.3.0 is already installed and works fine
+# facenet-pytorch requires Pillow>=10.2.0,<10.3.0 but Pillow 11.3.0 works
+# If you get Pillow installation errors, it's safe to ignore - Pillow 11.3.0 is compatible
+numpy>=1.24.0
+opencv-python>=4.8.0
+scikit-learn>=1.3.0
+threadpoolctl>=3.0.0  # Required by scikit-learn
+matplotlib>=3.7.0
+tqdm>=4.65.0
+tensorboard>=2.13.0
+pyyaml>=6.0
+
